@@ -1,57 +1,55 @@
-/* Extra functions-getters */
 
-const getLetter = (lettersString) => {
-    return lettersString[Math.floor(Math.random() * lettersString.length)];
-}
-
-const getSpecialSymbol = (specialSymbolsString) => {
-    return specialSymbolsString[Math.floor(Math.random() * specialSymbolsString.length)];
-}
-
-const getLetterUppercase = (lettersUppercaseString) => {
-    return lettersUppercaseString[Math.floor(Math.random() * lettersUppercaseString.length)];
-}
-
-const getNumber = (numbersString) => {
-    return numbersString[Math.floor(Math.random() * numbersString.length)];
-}
-
-// generateOneSymbol randomly activates getter functions above
-const generateOneSymbol = (getters) => {
+const PasswordGenerator = {
+    /* Values from user form */
+    symbolsQuantity: 5,
+    useSpecialSymbols: true,
+    useNumbers: true,
+    useLettersUppercase: true,
+    /* Global symbol strings (all avaliable symbols) */
+    lettersString: 'abcdefghijklmnopqrstuvwxyz',
+    specialSymbolsString: '!@#$%^()-+=',
+    numbersString: '0123456789',
+    lettersUppercaseString: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    /* Extra functions-getters */
+    getLetter: () => {
+        return this.lettersString[Math.floor(Math.random() * this.lettersString.length)];
+    },
+    getSpecialSymbol: () => {
+        return this.specialSymbolsString[Math.floor(Math.random() * this.specialSymbolsString.length)];
+    },
+    getNumber: () => {
+        return this.numbersString[Math.floor(Math.random() * this.numbersString.length)];
+    },
+    getLetterUppercase: () => {
+        return this.lettersUppercaseString[Math.floor(Math.random() * this.lettersUppercaseString.length)];
+    },
+    // generateOneSymbol randomly activates one of the 4 getter functions above
+    generateOneSymbol: () => {
+        let getters = new Array(4);
+        getters.push(getLetter()); // at least lowercase letters
+        // we check if we need to use another getter functions, depends on type of symbol that we want to include into password
+        if (this.useSpecialSymbols) getters.push(getSpecialSymbol());
+        if (this.useNumbers) getters.push(getNumber());
+        if (this.useLettersUppercase) getters.push(useLettersUppercase());
+        
+        return getters[Math.floor(Math.random() * getters.length)];
+    },
+    /*
+        Main function generatePassword()
+    */
+    generatePassword: () => {
     
-}
-
-/*
-    Main function generatePassword(params), where "params" is an array:
-    1. symbol quantity (number);
-    2. has special symbols (boolean);
-    3. has numbers (boolean);
-    4. has uppercase letters (boolean).
-*/
-
-const generatePassword = (params) => {
-
-    let result = '';
-
-    let lettersString = 'abcdefghijklmnopqrstuvwxyz'; // main symbols
-    let specialSymbolsString = '!@#$%^()-+=';
-    let numbersString = '0123456789';
-    let lettersUppercaseString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-   
-    let passwordLength = params[0];
-
-    // we check if we need to use getter functions, depends on type of symbol that we want to include into password
-    let useGetterFunctions = [];
-
-    // if (params[1]) stringsArray.push(specialSymbolsString);
-    // if (params[2]) stringsArray.push(numbersString);
-    // if (params[3]) stringsArray.push(lettersUppercaseString);
-
-
-    for (let i = 0; i < passwordLength; i++){
-        //result += symbolsString[randomFromRange(rangeStartCoefficient, rangeEndCoefficient)];
+        let result = '';        
+        let passwordLength = this.symbolsQuantity;
+       
+        for (let i = 0; i < passwordLength; i++){
+            let symbol = this.generateOneSymbol();
+            console.log(symbol);
+            result += symbol;
+        }
+    
+        return result;
     }
-
-
-    return result;
 };
+
+

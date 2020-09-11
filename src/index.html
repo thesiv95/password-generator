@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="js/generatePassword.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="output">
+            <input type="text" class="output__field" placeholder="Check conditions that you would like to add" />
+            <button class="output__copyToClipboard">Copy</button>
+        </div>
+        <div class="list">
+            <div class="list__item">
+                <input type="range" min="5" max="20" step="1" value="5" name="inputSymbolQuantity" id="inputSymbolQuantity" class="list__item_range" />
+                <label for="inputLength">Has <span id="inputSymbolQuantityDisplay" class="list__item_display">5</span> symbols length (change if needed)</label>
+            </div>
+            <div class="list__item">
+                <input type="checkbox" name="inputSymbols" id="inputSymbols" class="list__item_checkbox" />
+                <label for="inputSymbols">Has special symbols</label>
+            </div>
+            <div class="list__item">
+                <input type="checkbox" name="inputNumbers" id="inputNumbers" class="list__item_checkbox" />
+                <label for="inputNumbers">Has numbers</label>
+            </div>
+            <div class="list__item">
+                <input type="checkbox" name="inputUppercase" id="inputUppercase" class="list__item_checkbox" />
+                <label for="inputUppercase">Has uppercase letters</label>
+            </div>
+        </div>
+        <div class="credits">
+            <p class="credits__text">
+                &copy; 2020 @thesiv95
+                <a href="#" class="credits__text_link">Source code on Github</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

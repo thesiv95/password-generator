@@ -1,10 +1,10 @@
 
 class PasswordGenerator {
     /* Values from user form */
-    symbolsQuantity = 5;
-    useSpecialSymbols = false;
-    useNumbers = false;
-    useLettersUppercase = false;
+    symbolsQuantity = 10;
+    useSpecialSymbols = true;
+    useNumbers = true;
+    useLettersUppercase = true;
     /* Global symbol strings (all avaliable symbols) */
     lettersString = 'abcdefghijklmnopqrstuvwxyz';
     specialSymbolsString = '!@#$%^()-+=';
@@ -25,21 +25,20 @@ class PasswordGenerator {
     };
     /* Function generateOneSymbol() randomly activates one of the 4 getter functions above */
     generateOneSymbol = () => {
-        let getters = new Array(4);
+        let getters = [];
         getters.push(this.getLetter()); // at least lowercase letters
         // we check if we need to use another getter functions, depends on type of symbol that we want to include into password
         if (this.useSpecialSymbols) getters.push(this.getSpecialSymbol());
         if (this.useNumbers) getters.push(this.getNumber());
         if (this.useLettersUppercase) getters.push(this.getLetterUppercase());
-        
-        return getters[Math.floor(Math.random() * getters.length)];
+        // if no another getters used, we just run the first getter
+        console.log(getters);
+        return getters.length > 1 ? getters[Math.floor(Math.random() * getters.length)] : getters[0];
     };
     /* Main function generatePassword() */
     generatePassword = () => {
         let result = '';        
         let passwordLength = this.symbolsQuantity;
-       
-        console.log(passwordLength);
 
         for (let i = 0; i < passwordLength; i++){
             let symbol = this.generateOneSymbol();

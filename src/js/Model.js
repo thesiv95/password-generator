@@ -1,5 +1,5 @@
 
-class PasswordGenerator {
+class Model {
     /* Values from user form */
     symbolsQuantity = 10;
     useSpecialSymbols = true;

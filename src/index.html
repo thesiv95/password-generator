@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="js/PasswordGenerator.js"></script>
+    <script defer src="js/Model.js"></script>
+    <script defer src="js/View.js"></script>
+    <script defer src="js/Controller.js"></script>
     <script defer src="js/index.js"></script>
     
 </head>
 <body>
     <div class="container">
         <div class="output">
-            <input type="text" class="output__field" placeholder="Check conditions that you would like to add" />
-            <button class="output__copyToClipboard">Copy</button>
+            <p class="output__header">Check conditions that you would like to add</p>
+            <input type="text" class="output__field" id="outputField" />
+            <button class="output__copyToClipboard" id="btnOutputCopy">Copy</button>
         </div>
         <div class="list">
             <div class="list__item">

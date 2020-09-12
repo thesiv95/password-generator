@@ -1,7 +1,5 @@
 const view = new View();
 
-
- let params = [16, true, true, true];
 class Model {
     /* Values from user form */
     symbolsQuantity = () => { return view.inputSymbolQuantity.value };

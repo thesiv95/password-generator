@@ -1,10 +1,10 @@
-
+const view = new View();
 class Model {
     /* Values from user form */
-    symbolsQuantity = 10;
-    useSpecialSymbols = true;
-    useNumbers = true;
-    useLettersUppercase = true;
+    symbolsQuantity = view.inputSymbolQuantity.value;
+    useSpecialSymbols = view.inputSymbols.checked;
+    useNumbers = view.inputNumbers.checked;
+    useLettersUppercase = view.inputUppercase.checked;
     /* Global symbol strings (all avaliable symbols) */
     lettersString = 'abcdefghijklmnopqrstuvwxyz';
     specialSymbolsString = '!@#$%^()-+=';

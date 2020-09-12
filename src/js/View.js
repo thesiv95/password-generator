@@ -1,3 +1,4 @@
+const doc = document;
 class View {
     outputField = doc.getElementById('outputField');
     btnOutputCopy = doc.getElementById('btnOutputCopy');

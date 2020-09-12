@@ -32,7 +32,6 @@ class Model {
         if (this.useNumbers) getters.push(this.getNumber());
         if (this.useLettersUppercase) getters.push(this.getLetterUppercase());
         // if no another getters used, we just run the first getter
-        console.log(getters);
         return getters.length > 1 ? getters[Math.floor(Math.random() * getters.length)] : getters[0];
     };
     /* Main function generatePassword() */

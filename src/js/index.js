@@ -1,5 +1,2 @@
 
 
-
-const model = new Model();
-

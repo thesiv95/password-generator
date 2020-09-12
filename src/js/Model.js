@@ -1,7 +1,7 @@
 const view = new View();
 class Model {
     /* Values from user form */
-    symbolsQuantity = view.inputSymbolQuantity.value;
+    symbolsQuantity = () => { return view.inputSymbolQuantity.value };
     useSpecialSymbols = view.inputSymbols.checked;
     useNumbers = view.inputNumbers.checked;
     useLettersUppercase = view.inputUppercase.checked;
@@ -36,6 +36,9 @@ class Model {
     };
     /* Main function generatePassword() */
     generatePassword = () => {
+
+       
+
         let result = '';        
         let passwordLength = this.symbolsQuantity;
 

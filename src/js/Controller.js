@@ -1,13 +1,9 @@
 class Controller {
     setQuantityDisplay = () => {
-        view.inputSymbolQuantityDisplay.innerText = view.inputSymbolQuantity.value; 
+        model.setQuantityDisplay();
     };
     copyToClipboard = () => {
-        // code from W3C
-        let outputField = view.outputField;
-        outputField.select();
-        outputField.setSelectionRange(0, 99999);
-        doc.execCommand('copy');
+        model.copyToClipboard();
     };
     generateNewPassword = () => {
         view.outputField.value = model.generatePassword();

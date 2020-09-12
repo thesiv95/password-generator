@@ -27,6 +27,17 @@ class Model {
     getLetterUppercase = () => {
         return this.lettersUppercaseString[Math.floor(Math.random() * this.lettersUppercaseString.length)];
     };
+    /* Extra functions that is not directly connected with generation */
+    setQuantityDisplay = () => {
+        view.inputSymbolQuantityDisplay.innerText = view.inputSymbolQuantity.value; 
+    };
+    copyToClipboard = () => {
+        // code from W3C
+        let outputField = view.outputField;
+        outputField.select();
+        outputField.setSelectionRange(0, 99999);
+        doc.execCommand('copy');
+    };
     /* Function generateOneSymbol() randomly activates one of the 4 getter functions above */
     generateOneSymbol = () => {
         let getters = [];

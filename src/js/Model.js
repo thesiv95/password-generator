@@ -27,7 +27,7 @@ class Model {
     getLetterUppercase = () => {
         return this.lettersUppercaseString[Math.floor(Math.random() * this.lettersUppercaseString.length)];
     };
-    /* Extra functions that is not directly connected with generation */
+    /* Extra functions that are not directly connected with generation */
     setQuantityDisplay = () => {
         view.inputSymbolQuantityDisplay.innerText = view.inputSymbolQuantity.value; 
     };
